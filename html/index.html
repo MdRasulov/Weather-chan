@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-chan</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/snow.png" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="header-location">
+          <img
+            class="location-icon"
+            src="../assets/icons/ui/location.png"
+            alt="location-icon"
+          />
+          <span data-location-name>Tashkent</span>
+        </div>
+
+        <div class="header-search">
+          <button id="open-modal">
+            <img
+              class="search-icon"
+              src="../assets/icons/ui/search.png"
+              alt="search"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="weather-current">
+        <img
+          data-current-weather-img
+          src="../assets/icons//weather/sunny.png"
+          alt="weather-current-icon"
+        />
+
+        <p class="current-temp"><span data-current-temp></span>C</p>
+
+        <div class="current-min-max">
+          <p class="current-min">Min: <span data-min-temp></span></p>
+
+          <p class="current-max">Max: <span data-max-temp></span></p>
+        </div>
+      </section>
+
+      <section class="weather-details">
+        <div class="weather-parametrs">
+          <div class="parametr wind">
+            <p><span data-current-wind></span>km/h</p>
+            <img src="../assets/icons/weather/wind.png" alt="wind icon" />
+            <span>Wind Flow</span>
+          </div>
+          <div class="parametr precep">
+            <p><span data-current-precipitation></span>%</p>
+            <img
+              src="../assets/icons/weather/umbrella.png"
+              alt="preception icon"
+            />
+            <span>Preception</span>
+          </div>
+          <div class="parametr humidity">
+            <p><span data-current-humidity></span>%</p>
+            <img src="../assets/icons/weather/drop.png" alt="humidity icon" />
+            <span>Humidity</span>
+          </div>
+        </div>
+
+        <div class="weather-hourly-container">
+          <div class="date-wrapper">
+            <span>Today</span>
+            <!-- <span class="date" data-date>March, 9</span> -->
+          </div>
+
+          <div class="weather-hourly-wrapper" data-weather-hourly-wrapper></div>
+        </div>
+
+        <div class="weather-daily-container">
+          <div class="next-forecast">
+            <span>Next Forecast</span>
+            <!-- <span>March, 9</span> -->
+          </div>
+
+          <div class="weather-daily-wrapper" data-weather-daily-wrapper></div>
+        </div>
+      </section>
+
+      <div id="search-modal" class="modal">
+        <div class="modal-content">
+          <div class="search-heading">
+            <span>Search for location</span>
+            <button id="modal-close-cross">
+              <img src="../assets/icons/ui/cross.png" alt="close modal" />
+            </button>
+          </div>
+
+          <form id="search-form">
+            <div class="input-container">
+              <input value="Tashkent" id="search-input" type="text" />
+              <button id="search-submit-btn" type="submit">
+                <img src="../assets/icons/ui/search-white.png" alt="" />
+              </button>
+            </div>
+          </form>
+
+          <div class="search-buttons">
+            <button form="search-form" id="search-btn" class="search-btn">
+              Search
+            </button>
+            <button id="modal-close-btn" class="close-btn">Close</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrapper">
+        <span>Weather-chan</span>
+        <span>2023</span>
+      </div>
+    </footer>
+
+    <script type="module" src="../javascript/script.js"></script>
+  </body>
+</html>
