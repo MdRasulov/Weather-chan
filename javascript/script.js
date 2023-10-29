@@ -12,6 +12,8 @@ const closeModalBtn = document.querySelector('#modal-close-btn');
 const searchInput = document.querySelector('#search-input');
 const searchSubmitButton = document.querySelector('#search-submit-btn');
 const searchButton = document.querySelector('#search-btn');
+const loadingBlur = document.querySelector('#loading-blur');
+const errorMessage = document.querySelector('[data-error-message]');
 
 //EVENT LISTENERS
 openModalBtn.addEventListener('click', openModal);
@@ -30,12 +32,15 @@ renderPage();
 
 async function renderPage(lat = 41.2647, long = 69.2163) {
   try {
+    toggleLoadingBlur();
     const weatherData = await fetchWeather(lat, long);
     const weather = formatWeatherData(weatherData);
     renderWeather(weather);
     closeModal();
   } catch (error) {
     console.log(error);
+  } finally {
+    toggleLoadingBlur();
   }
 }
 
@@ -85,6 +90,8 @@ async function handleSearch(place) {
           result.name;
 
         renderPage(result.latitude, result.longitude);
+      } else {
+        addErrorMessage();
       }
     } catch (error) {
       console.log(error);
@@ -181,4 +188,19 @@ function openModal() {
 function closeModal() {
   searchInput.value = '';
   document.querySelector('#search-modal').classList.remove('active');
+  removeErrorMessage();
+}
+
+function addErrorMessage() {
+  errorMessage.classList.add('active');
+}
+
+function removeErrorMessage() {
+  errorMessage.classList.remove('active');
+}
+
+function toggleLoadingBlur() {
+  loadingBlur.classList.contains('active')
+    ? loadingBlur.classList.remove('active')
+    : loadingBlur.classList.add('active');
 }
