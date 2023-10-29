@@ -110,7 +110,7 @@ function renderCurrentWeather(currentWeather) {
 
   document.querySelector(
     '[data-current-weather-img]'
-  ).src = `../assets/icons//weather/${weatherType}.png`;
+  ).src = `./assets/icons//weather/${weatherType}.png`;
 
   document.querySelector('[data-current-temp]').innerHTML =
     currentWeather.temperatureCurrent + '&deg;';
@@ -144,7 +144,7 @@ function renderHourlyWeather(hourly) {
 
     hourlyWeather.innerHTML = `<p class="hourly-temp"><span>${hour.temperature}&deg;</span>C</p>`;
 
-    hourlyWeather.innerHTML += `<img src="../assets/icons/weather/light-size/${weatherType}.png" alt="weather-icon" />`;
+    hourlyWeather.innerHTML += `<img src="./assets/icons/weather/light-size/${weatherType}.png" alt="weather-icon" />`;
 
     hourlyWeather.innerHTML += `<span>${hourConverter.format(
       hour.time
@@ -166,7 +166,7 @@ function renderDailyWeather(daily) {
 
     dailyWeather.innerHTML = `<span class="week-day">${day.day}</span>`;
 
-    dailyWeather.innerHTML += `<img src="../assets/icons/weather/light-size/${weatherType}.png" alt="daily-weather-icon" />`;
+    dailyWeather.innerHTML += `<img src="./assets/icons/weather/light-size/${weatherType}.png" alt="daily-weather-icon" />`;
 
     dailyWeather.innerHTML += `<div class="temps-container"> <span>${day.temperatureMin}&deg;</span> <span class="max-temp">${day.temperatureMax}&deg;</span> </div>`;
 
